@@ -1,5 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
+import covidInfoSlice from "../redux/getDataSlice";
 
-export default configureStore({
-  reducer: {},
+export const store = configureStore({
+  reducer: {
+    covidInfo: covidInfoSlice,
+  },
 });
