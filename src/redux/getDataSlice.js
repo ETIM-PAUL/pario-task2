@@ -11,7 +11,6 @@ export const covidInfoSlice = createSlice({
         ...state,
         covidInfo: payload.data,
       };
-      // state.covidInfo = payload.data;
     },
   },
 });

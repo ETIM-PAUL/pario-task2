@@ -1,7 +1,8 @@
-import React, { useEffect, useState, useMemo } from "react";
-import { Stat, StatLabel, StatNumber, StatGroup } from "@chakra-ui/react";
+import React, { useEffect, useState } from "react";
+import { StatGroup } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 import { Spinner } from "@chakra-ui/react";
+import CardComponent from "./cardComponent";
 
 const GeneralInfo = () => {
   const covidInfo = useSelector((state) => state.covidInfo.covidInfo);
@@ -30,43 +31,39 @@ const GeneralInfo = () => {
       <h1 className="text-2xl font-sans font-black">
         National Covid-19 Information
       </h1>
-      {!loading > 0 ? (
+      {!loading ? (
         <>
           <StatGroup className="flex gap-5">
-            <Stat className="bg-[#b8b5b6] py-5">
-              <StatLabel className="uppercase text-[aliceblue]">
-                total samples tested
-              </StatLabel>
-              <StatNumber>{totalSamplesTested}</StatNumber>
-            </Stat>
-
-            <Stat className="bg-[#b8b5b6] py-5">
-              <StatLabel className="uppercase text-[#0000cd]">
-                total confirmed cases
-              </StatLabel>
-              <StatNumber>{totalConfirmedCases}</StatNumber>
-            </Stat>
-          </StatGroup>
-          <StatGroup className="flex gap-6">
-            <Stat className="bg-[#b8b5b6] py-5">
-              <StatLabel className="uppercase text-[#ffff00]">
-                total active cases
-              </StatLabel>
-              <StatNumber>{totalActiveCases}</StatNumber>
-            </Stat>
-
-            <Stat className="bg-[#b8b5b6]  py-5">
-              <StatLabel className="uppercase text-[green]">
-                discharged
-              </StatLabel>
-              <StatNumber>{discharged}</StatNumber>
-            </Stat>
+            <CardComponent
+              value="total samples tested"
+              number={totalSamplesTested}
+              className="uppercase text-[aliceblue]"
+            />
+            <CardComponent
+              value="total confirmed cases"
+              number={totalConfirmedCases}
+              className="uppercase text-[#0000cd]"
+            />
           </StatGroup>
 
-          <Stat className="bg-[#b8b5b6] py-5">
-            <StatLabel className="uppercase text-[red]">death</StatLabel>
-            <StatNumber>{death}</StatNumber>
-          </Stat>
+          <StatGroup className="flex gap-5">
+            <CardComponent
+              value="total active cases"
+              number={totalActiveCases}
+              className="uppercase text-[#ffff00]"
+            />
+            <CardComponent
+              value="discharged"
+              number={discharged}
+              className="uppercase text-[green]"
+            />
+          </StatGroup>
+
+          <CardComponent
+            value="death"
+            number={death}
+            className="uppercase text-[red]"
+          />
         </>
       ) : (
         <div>

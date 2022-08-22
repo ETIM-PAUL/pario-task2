@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { getData } from "./adapter/getData";
 import "./App.css";
 import GeneralInfo from "./components/generalInfo";
+import StateCovidInfo from "./components/stateInfo";
 import { setCovidInfo } from "./redux/getDataSlice";
 
 function App() {
@@ -17,7 +18,9 @@ function App() {
         <div className="w-[50%] bg-[green]">
           <GeneralInfo />
         </div>
-        <div className="w-[50%] bg-[#b8b5b6]"></div>
+        <div className="w-[50%] bg-[#b8b5b6]">
+          <StateCovidInfo />
+        </div>
       </div>
     </div>
   );
