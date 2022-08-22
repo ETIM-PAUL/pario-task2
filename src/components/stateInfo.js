@@ -3,14 +3,15 @@ import { Select } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 import { StatGroup, Spinner } from "@chakra-ui/react";
 import CardComponent from "./cardComponent";
+import PieChartDiv from "./pieChart";
 
 const StateCovidInfo = () => {
   const statesCovidInfo = useSelector(
     (state) => state.covidInfo.covidInfo.states
   );
   const [statesInfo, setStatesInfo] = useState([]);
+  const [stateInfo, setStateInfo] = useState([]);
   const [selectedStateId, setSelectedStateId] = useState(null);
-  let stateInfo = [];
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -27,8 +28,8 @@ const StateCovidInfo = () => {
     setTimeout(() => {
       setLoading(false);
     }, 1000);
+    setStateInfo(statesInfo?.filter((state) => state._id === e.target.value));
   };
-  stateInfo = statesInfo?.filter((state) => state._id === selectedStateId);
 
   return (
     <div>
@@ -53,7 +54,7 @@ const StateCovidInfo = () => {
           <div className="state-info-cards">
             {!loading ? (
               <>
-                <StatGroup className="flex gap-5">
+                <StatGroup className="flex gap-5 mb-5">
                   <CardComponent
                     value="confirmed cases"
                     number={stateInfo[0].confirmedCases}
@@ -62,7 +63,7 @@ const StateCovidInfo = () => {
                   <CardComponent
                     value="cases on admission"
                     number={stateInfo[0].casesOnAdmission}
-                    className="uppercase text-[#ffff00]"
+                    className="uppercase text-[goldenrod]"
                   />
                 </StatGroup>
 
@@ -78,6 +79,7 @@ const StateCovidInfo = () => {
                     className="uppercase text-[red]"
                   />
                 </StatGroup>
+                <PieChartDiv state={stateInfo} />
               </>
             ) : (
               <div>

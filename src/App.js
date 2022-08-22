@@ -18,7 +18,7 @@ function App() {
         <div className="w-[50%] bg-[green]">
           <GeneralInfo />
         </div>
-        <div className="w-[50%] bg-[#b8b5b6]">
+        <div className="w-[50%] bg-[#fff]">
           <StateCovidInfo />
         </div>
       </div>
