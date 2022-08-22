@@ -39,7 +39,7 @@ const PieChartDiv = (stateInfo) => {
     return null;
   };
   return (
-    <div className="m-auto flex justify-center">
+    <div className="m-auto flex justify-center mt-6">
       <PieChart width={500} height={300}>
         <Pie
           data={pieData}

@@ -33,7 +33,7 @@ const StateCovidInfo = () => {
 
   return (
     <div>
-      <div className="mt-24 mx-12 grid gap-6">
+      <div className="py-10 md:py-24 lg:px-8 grid gap-6">
         <h1 className="text-2xl font-sans font-black">
           State Covid-19 Information
         </h1>

@@ -27,7 +27,7 @@ const GeneralInfo = () => {
   } = allInfo;
 
   return (
-    <div className="mt-24 mx-8 grid gap-6">
+    <div className="my-10 md:my-24 mx-8 grid gap-6">
       <h1 className="text-2xl font-sans font-black">
         National Covid-19 Information
       </h1>

@@ -14,11 +14,11 @@ function App() {
 
   return (
     <div className="App">
-      <div className="flex justify-center h-[100vh]">
-        <div className="w-[50%] bg-[green]">
+      <div className="block md:flex justify-center h-[100vh]">
+        <div className="md:w-[50%] md:bg-[green] bg-[#fff]">
           <GeneralInfo />
         </div>
-        <div className="w-[50%] bg-[#fff]">
+        <div className="md:w-[50%] bg-[#fff]">
           <StateCovidInfo />
         </div>
       </div>
